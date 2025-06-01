@@ -12,6 +12,23 @@ WanderSync is a simple, collaborative platform for sharing travel itineraries. U
 - Responsive design using Tailwind CSS
 - Lightweight, in-memory backend for fast prototyping
 
+## 📸 Screenshots
+
+### 🏠 Home Page
+![Home Page](public/screenshots/homepage.png)
+
+### ⬆️ Upload Page
+![Upload Page](public/screenshots/upload.png)
+
+### ✅ Success Page
+![Success Page](public/screenshots/success.png)
+
+### 📋 Itineraries List
+![Itineraries List](public/screenshots/itineraries-list.png)
+
+### 🧭 Itinerary Detail
+![Itinerary Detail](public/screenshots/itinerary-detail.png)
+
 ## 🛠 Tech Stack
 
 - **Frontend**: Next.js, React, TypeScript, Tailwind CSS
