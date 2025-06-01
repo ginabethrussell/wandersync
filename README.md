@@ -2,6 +2,9 @@
 
 WanderSync is a simple, collaborative platform for sharing travel itineraries. Upload your trip as a CSV and instantly unlock inspiration from other explorers — all for free.
 
+👉 [Live Demo](https://wandersync.vercel.app)
+
+
 ## ✨ Features
 
 - Upload travel itineraries as CSV files
@@ -11,6 +14,23 @@ WanderSync is a simple, collaborative platform for sharing travel itineraries. U
 - Click into detailed daily plans
 - Responsive design using Tailwind CSS
 - Lightweight, in-memory backend for fast prototyping
+
+## 📸 Screenshots
+
+### 🏠 Home Page
+![Home Page](public/screenshots/homepage.png)
+
+### ⬆️ Upload Page
+![Upload Page](public/screenshots/upload.png)
+
+### ✅ Success Page
+![Success Page](public/screenshots/success.png)
+
+### 📋 Itineraries List
+![Itineraries List](public/screenshots/itineraries-list.png)
+
+### 🧭 Itinerary Detail
+![Itinerary Detail](public/screenshots/itinerary-detail.png)
 
 ## 🛠 Tech Stack
 
@@ -81,7 +101,7 @@ wandersync/
 
 ## 🧪 Sample CSV Format
 
-```sql
+```
 Day,Location,Activity,Lodging,Dining,Notes
 ```
 You can download a template directly from the app.
