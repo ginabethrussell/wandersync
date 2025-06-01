@@ -40,17 +40,44 @@ npm run dev
 Visit http://localhost:3000 to view it in the browser.
 
 ## 📁 File Structure
-
-src/
-├── components/        // Reusable UI components (e.g. Layout, Logo, ItineraryCard)
-├── data/              // In-memory mock database
-├── pages/             // Next.js pages and API routes
-│   ├── api/           // Upload and fetch itineraries
-│   ├── itineraries/   // Dynamic detail pages by ID
-│   └── upload.tsx     // Form for uploading itineraries
-├── services/          // Frontend service for posting data
-├── types/             // Shared TypeScript types
-└── styles/            // Tailwind config and global styles
+```text
+wandersync/
+├── public/
+│   └── wandersync-logo.png
+│   └── itinerary-template.csv
+├── src/
+│   ├── components/
+│   │   └── Footer.tsx
+│   │   └── Header.tsx
+│   │   └── ItineraryCard.tsx
+│   │   └── Layout.tsx
+│   │   └── LogoHeader.tsx
+│   ├── data/
+│   │   └── mockDb.ts
+│   ├── pages/
+│   │   └── api/
+│   │   │   ├── itinerary/
+│   │   │   │   └── [id].tsx
+│   │   |   ├── itinerary/index.tsx
+│   │   ├── index.tsx
+│   │   ├── upload.tsx
+│   │   ├── success.tsx
+│   │   ├── itinerary/
+│   │   │   ├── index.tsx
+│   │   │   └── [id].tsx
+│   ├── services/
+│   │   └── uploadService.ts
+│   ├── types/
+│   │   ├── itinerary.ts
+│   │   └── uploadForm.ts
+│   └── styles/
+│       └── globals.css
+├── .gitignore
+├── package.json
+├── tailwind.config.ts
+├── postcss.config.js
+└── README.md
+```
 
 ## 🧪 Sample CSV Format
 
