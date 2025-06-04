@@ -12,7 +12,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         !body.destination ||
         !body.days ||
         !body.summary ||
-        !body.csv?.length
+        !body.items?.length
       ) {
         return res.status(400).json({ message: "Missing required fields" });
       }

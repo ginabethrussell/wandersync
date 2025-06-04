@@ -1,10 +1,19 @@
-export type ItineraryItem = {
+export type ParsedCSV = {
   Day: string;
   Location: string;
   Activity: string;
   Lodging: string;
   Dining: string;
   Notes: string;
+}
+
+export type ItineraryItem = {
+  day: string;
+  location: string;
+  activity: string;
+  lodging: string;
+  dining: string;
+  notes: string;
 };
 
 export type ItineraryMetadata = {
@@ -13,6 +22,6 @@ export type ItineraryMetadata = {
   days: number;
   summary: string;
   tags: string[];
-  recommendedTime: string;
-  csv: ItineraryItem[];
+  recommended_time: string;
+  items: ItineraryItem[];
 };
