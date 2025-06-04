@@ -2,7 +2,7 @@ import Head from "next/head";
 import { useState } from "react";
 import { useRouter } from "next/router";
 import Papa from "papaparse";
-import { ItineraryItem } from "@/types/itinerary";
+import { ItineraryItem, ParsedCSV } from "@/types/itinerary";
 import { UploadFormFields } from "@/types/uploadForm";
 import { uploadItinerary } from "@/services/uploadService";
 import Layout from "@/components/Layout";
@@ -67,7 +67,7 @@ export default function UploadPage() {
       Papa.parse(file, {
         header: true,
         complete: (results) => {
-          const parsed = results.data as ItineraryItem[];
+          const parsed = results.data as ParsedCSV[];
           const requiredCols = ["Day", "Location", "Activity", "Lodging", "Dining", "Notes"];
           const headers = Object.keys(parsed[0] || {});
           const missing = requiredCols.filter(col => !headers.includes(col));
@@ -75,7 +75,16 @@ export default function UploadPage() {
             alert(`Missing columns: ${missing.join(", ")}`);
             setParsedCSV([]);
           } else {
-            setParsedCSV(parsed);
+            // Create a new array where every object’s keys have been lowercased:
+            const normalized: ItineraryItem[] = parsed.map(row => ({
+              day: row.Day,
+              location: row.Location,
+              activity: row.Activity,
+              lodging: row.Lodging,
+              dining: row.Dining,
+              notes: row.Notes,
+            }));
+            setParsedCSV(normalized);
           }
         }
       });
@@ -104,9 +113,9 @@ export default function UploadPage() {
         destination: form.destination,
         days: Number(form.days),
         summary: form.summary,
-        recommendedTime: form.recommendedTime,
+        recommended_time: form.recommendedTime,
         tags: form.tags,
-        csv: parsedCSV,
+        items: parsedCSV,
       });
 
       router.push("/success");

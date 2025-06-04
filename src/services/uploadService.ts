@@ -1,4 +1,5 @@
 import { ItineraryItem } from "@/types/itinerary";
+const API_BASE = process.env.NEXT_PUBLIC_BACKEND_URL;
 
 export type UploadPayload = {
   title: string;
@@ -6,12 +7,12 @@ export type UploadPayload = {
   days: number;
   summary: string;
   tags: string[];
-  recommendedTime: string;
-  csv: ItineraryItem[];
+  recommended_time: string;
+  items: ItineraryItem[];
 };
 
 export async function uploadItinerary(data: UploadPayload): Promise<void> {
-  const response = await fetch("/api/itinerary", {
+  const response = await fetch(`${API_BASE}/api/itineraries/`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(data),
