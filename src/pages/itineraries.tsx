@@ -2,7 +2,8 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import Layout from "@/components/Layout";
 import { ItineraryWithId } from "@/lib/mockDb";
-const API_BASE = process.env.NEXT_PUBLIC_BACKEND_URL;
+import { API_BASE } from "@/config";
+
 
 export default function ItinerariesPage() {
   const [itineraries, setItineraries] = useState<ItineraryWithId[]>([]);

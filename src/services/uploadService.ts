@@ -1,5 +1,5 @@
 import { ItineraryItem } from "@/types/itinerary";
-const API_BASE = process.env.NEXT_PUBLIC_BACKEND_URL;
+import { API_BASE } from "../config";
 
 export type UploadPayload = {
   title: string;
