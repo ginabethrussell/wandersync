@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-const API_BASE = process.env.NEXT_PUBLIC_BACKEND_URL;
+import { API_BASE } from "../../config";
 import { ItineraryWithId } from "@/lib/mockDb";
 import Layout from "@/components/Layout";
 import ItineraryCard from "@/components/IntineraryCard";

@@ -1,6 +1,5 @@
 import { ItineraryMetadata } from "@/types/itinerary";
-
-const API_BASE = process.env.NEXT_PUBLIC_BACKEND_URL;
+import { API_BASE } from "../config";
 
 export async function deleteItineraryById(id: number): Promise<ItineraryMetadata> {
   const response = await fetch(`${API_BASE}/api/itineraries/${id}/`, {
