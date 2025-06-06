@@ -41,12 +41,14 @@ export default function ItineraryDetailPage() {
     <Layout showFooter={false}>
       <div className="max-w-3xl mx-auto py-10 px-4">
         <h1 className="text-3xl font-bold mb-2">{itinerary.title}</h1>
-        <button
-          onClick={handleDelete}
-          className="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded"
-        >
-          Delete
-        </button>
+        <div className="flex justify-right items-center">
+          <button
+            onClick={handleDelete}
+            className="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded"
+          >
+            Delete
+          </button>
+        </div>
         <p className="text-gray-600 mb-4">
           {itinerary.destination} • {itinerary.days} days
         </p>
