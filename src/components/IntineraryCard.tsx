@@ -25,7 +25,7 @@ export default function ItineraryCard({ itinerary }: Props) {
               <tr>
                 {Object.keys(items[0]).map((key) => (
                   <th key={key} className={`${key === "id" ? "hidden" : ""} px-3 py-2 border-b font-medium text-gray-800 dark:text-gray-200`}>
-                    {key}
+                    {key.toUpperCase()}
                   </th>
                 ))}
               </tr>
