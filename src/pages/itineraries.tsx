@@ -3,6 +3,7 @@ import Link from "next/link";
 import Layout from "@/components/Layout";
 import { ItineraryWithId } from "@/lib/mockDb";
 import { API_BASE } from "@/config";
+import { toTitleCase } from "@/utils/helpers";
 
 
 export default function ItinerariesPage() {
@@ -85,7 +86,7 @@ export default function ItinerariesPage() {
                   <thead className="bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200">
                     <tr>
                       {Object.keys(itinerary.items[0] || {}).map((key) => (
-                        <th key={key} className={`${key === "id" ? "hidden" : ""} border px-3 py-2 text-left`}>{key}</th>
+                        <th key={key} className={`${key === "id" ? "hidden" : ""} border px-3 py-2 text-left`}>{toTitleCase(key)}</th>
                       ))}
                     </tr>
                   </thead>
