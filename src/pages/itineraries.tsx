@@ -58,17 +58,19 @@ export default function ItinerariesPage() {
           <>
           {itineraries.map((itinerary, idx) => (
             <div key={idx} className="p-6 rounded-xl bg-white dark:bg-gray-900 shadow border border-gray-200 dark:border-gray-800">
-              <Link href={`/itineraries/${itinerary.id}`}>
-                <h2 className="text-xl font-semibold text-sky-600 hover:text-sky-700">
-                  {itinerary.title}
-                </h2>
-              </Link>
-              <button
-                onClick={() => handleDelete(itinerary.id)}
-                className="text-red-600 hover:underline"
-              >
-                Delete
-              </button>
+              <div className="flex justify-between items-center">
+                <Link href={`/itineraries/${itinerary.id}`}>
+                  <h2 className="text-xl font-semibold text-sky-600 hover:text-sky-700">
+                    {itinerary.title}
+                  </h2>
+                </Link>
+                <button
+                  onClick={() => handleDelete(itinerary.id)}
+                  className="text-red-600 hover:underline"
+                >
+                  Delete
+                </button>
+              </div>
               <p className="text-gray-700 dark:text-gray-300">{itinerary.summary}</p>
               <p className="mt-2 text-sm text-gray-500 dark:text-gray-400">
                 Destination: <strong>{itinerary.destination}</strong> | Days: {itinerary.days} | Best time: {itinerary.recommended_time}
