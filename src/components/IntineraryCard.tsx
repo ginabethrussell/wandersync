@@ -24,7 +24,7 @@ export default function ItineraryCard({ itinerary }: Props) {
             <thead className="bg-gray-100 dark:bg-gray-700 text-left">
               <tr>
                 {Object.keys(items[0]).map((key) => (
-                  <th key={key} className="px-3 py-2 border-b font-medium text-gray-800 dark:text-gray-200">
+                  <th key={key} className={`${key === "id" ? "hidden" : ""} px-3 py-2 border-b font-medium text-gray-800 dark:text-gray-200`}>
                     {key}
                   </th>
                 ))}
@@ -33,11 +33,16 @@ export default function ItineraryCard({ itinerary }: Props) {
             <tbody>
               {items.map((row, rowIndex) => (
                 <tr key={rowIndex} className="even:bg-gray-50 dark:even:bg-gray-800">
-                  {Object.values(row).map((val, colIndex) => (
-                    <td key={colIndex} className="px-3 py-2 border-b text-gray-700 dark:text-gray-200">
-                      {val}
-                    </td>
-                  ))}
+                  {Object.entries(row)
+                    .filter(([key]) => key !== "id")       /* drop the id field */
+                    .map(([, val], colIndex) => (
+                      <td
+                        key={colIndex}
+                        className="px-3 py-2 border-b text-gray-700 dark:text-gray-200"
+                      >
+                        {val}
+                      </td>
+                    ))}
                 </tr>
               ))}
             </tbody>

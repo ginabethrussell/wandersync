@@ -83,16 +83,26 @@ export default function ItinerariesPage() {
                   <thead className="bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200">
                     <tr>
                       {Object.keys(itinerary.items[0] || {}).map((key) => (
-                        <th key={key} className="border px-3 py-2 text-left">{key}</th>
+                        <th key={key} className={`${key === "id" ? "hidden" : ""} border px-3 py-2 text-left`}>{key}</th>
                       ))}
                     </tr>
                   </thead>
                   <tbody>
                     {itinerary.items.slice(0, 3).map((row, rowIndex) => (
-                      <tr key={rowIndex} className="even:bg-gray-50 dark:even:bg-gray-800">
-                        {Object.values(row).map((val, colIndex) => (
-                          <td key={colIndex} className="border px-3 py-2 text-gray-700 dark:text-gray-200">{val}</td>
-                        ))}
+                      <tr
+                        key={rowIndex}
+                        className="even:bg-gray-50 dark:even:bg-gray-800"
+                      >
+                        {Object.entries(row)
+                          .filter(([key]) => key !== "id")       /* drop the id field */
+                          .map(([, val], colIndex) => (
+                            <td
+                              key={colIndex}
+                              className="border px-3 py-2 text-gray-700 dark:text-gray-200"
+                            >
+                              {val}
+                            </td>
+                          ))}
                       </tr>
                     ))}
                   </tbody>
